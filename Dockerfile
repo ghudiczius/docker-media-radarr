@@ -3,7 +3,7 @@ FROM mono:6.8.0.96
 ARG VERSION
 
 RUN apt-get update && \
-    apt-get -y install curl mediainfo && \
+    apt-get -y install mediainfo && \
     groupadd -g 1000 radarr && \
     useradd -d /home/radarr -g 1000 -m -s /bin/bash -u 1000 radarr && \
     curl -Lo /tmp/radarr.tar.gz "https://github.com/Radarr/Radarr/releases/download/v${VERSION}/Radarr.develop.${VERSION}.linux.tar.gz" && \
