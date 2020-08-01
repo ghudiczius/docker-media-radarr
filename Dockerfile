@@ -17,4 +17,5 @@ VOLUME /config /downloads /movies
 WORKDIR /opt/radarr
 
 EXPOSE 7878
-ENTRYPOINT ["mono", "/opt/radarr/Radarr.exe", "-data=/config", "-nobrowser"]
+ENTRYPOINT ["mono"]
+CMD ["/opt/radarr/Radarr.exe", "-data=/config", "-nobrowser"]
