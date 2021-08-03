@@ -5,6 +5,16 @@ Simple docker image for Radarr without any bloat, built on the official mono ima
 ## Usage
 
 ```sh
+docker run --rm registry.gitlab.jmk.hu/media/radarr:<VERSION> \
+  -p 7878:7878 \
+  -v path/to/config:/config \
+  -v path/to/downloads:/downloads \
+  -v path/to/movies:/movies
+```
+
+or
+
+```sh
 docker run --rm ghudiczius/radarr:<VERSION> \
   -p 7878:7878 \
   -v path/to/config:/config \
