@@ -1,9 +1,12 @@
 FROM mcr.microsoft.com/dotnet/runtime:5.0
 
-ARG VERSION
+ARG VERSION=5.12.2.9335
 
 RUN apt-get update && \
-    apt-get --assume-yes install curl libsqlite3-0 mediainfo && \
+    apt-get --assume-yes install \
+        curl=7.64.0-4+deb10u9 \
+        libsqlite3-0=3.27.2-3+deb10u2 \
+        mediainfo=18.12-2 && \
     groupadd --gid=1000 radarr && \
     useradd --gid=1000 --home-dir=/opt/radarr --no-create-home --shell /bin/bash --uid 1000 radarr && \
     mkdir /config /downloads /movies /opt/radarr && \
