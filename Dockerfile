@@ -2,11 +2,18 @@ FROM mcr.microsoft.com/dotnet/runtime:5.0
 
 ARG VERSION=5.12.2.9335
 
+# renovate: release=bullseye depName=curl
+ENV CURL_VERSION=7.64.0-4+deb10u9
+# renovate: release=bullseye depName=libsqlite3-0
+ENV LIBSQLITE3_VERSION=3.27.2-3+deb10u2
+# renovate: release=bullseye depName=mediainfo
+ENV MEDIAINFO_VERSION=18.12-2
+
 RUN apt-get update && \
     apt-get --assume-yes install \
-        curl=7.64.0-4+deb10u9 \
-        libsqlite3-0=3.27.2-3+deb10u2 \
-        mediainfo=18.12-2 && \
+        curl="${CURL_VERSION}" \
+        libsqlite3-0="${LIBSQLITE3_VERSION}" \
+        mediainfo="${MEDIAINFO_VERSION}" \
     groupadd --gid=1000 radarr && \
     useradd --gid=1000 --home-dir=/opt/radarr --no-create-home --shell /bin/bash --uid 1000 radarr && \
     mkdir /config /downloads /movies /opt/radarr && \
