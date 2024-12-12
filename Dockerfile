@@ -13,7 +13,7 @@ RUN apt-get update && \
     apt-get --assume-yes install \
         curl="${CURL_VERSION}" \
         libsqlite3-0="${LIBSQLITE3_VERSION}" \
-        mediainfo="${MEDIAINFO_VERSION}" \
+        mediainfo="${MEDIAINFO_VERSION}" && \
     groupadd --gid=1000 radarr && \
     useradd --gid=1000 --home-dir=/opt/radarr --no-create-home --shell /bin/bash --uid 1000 radarr && \
     mkdir /config /downloads /movies /opt/radarr && \
