@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/runtime:9.0
 
-ARG VERSION=5.12.2.9335
+ARG VERSION
 
 # renovate: release=bullseye depName=curl
 ENV CURL_VERSION=7.88.1-10+deb12u8
