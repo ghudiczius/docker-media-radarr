@@ -3,14 +3,14 @@
   "commitMessagePrefix": "renovate:",
   "customManagers": [{
     "customType": "regex",
+    "datasourceTemplate": "deb",
     "fileMatch": [
       "^Dockerfile$"
     ],
     "matchStrings": [
       "#\\s*renovate:\\s*?(release=(?<release>.*?))?\\s*depName=(?<depName>.*?)?\\sENV .*?_VERSION=(?<currentValue>.*)"
     ],
-    "registryUrlTemplate": "https://deb.debian.org/debian?suite=stable&components=main&binaryArch=amd64",
-    "datasourceTemplate": "deb"
+    "registryUrlTemplate": "https://deb.debian.org/debian?suite=stable&components=main&binaryArch=amd64"
   }, {
     "customType": "regex",
     "datasourceTemplate": "github-releases",
@@ -39,6 +39,11 @@
     "automergeType": "branch",
     "matchUpdateTypes": [
       "patch"
+    ]
+  }, {
+    "ignoreUnstable": false,
+    "matchPackageNames": [
+      "Radarr/Radarr"
     ]
   }]
 }

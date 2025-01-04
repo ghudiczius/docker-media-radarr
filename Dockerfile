@@ -1,5 +1,6 @@
 FROM mcr.microsoft.com/dotnet/runtime:9.0
 
+ARG SOURCE_CHANNEL
 ARG VERSION
 
 # renovate: release=bookworm depName=curl
@@ -17,7 +18,7 @@ RUN apt-get update && \
     groupadd --gid=1000 radarr && \
     useradd --gid=1000 --home-dir=/opt/radarr --no-create-home --shell /bin/bash --uid 1000 radarr && \
     mkdir /config /downloads /movies /opt/radarr && \
-    curl --location --output /tmp/radarr.tar.gz "https://github.com/Radarr/Radarr/releases/download/v${VERSION}/Radarr.master.${VERSION}.linux-core-x64.tar.gz" && \
+    curl --location --output /tmp/radarr.tar.gz "https://github.com/Radarr/Radarr/releases/download/v${VERSION}/Radarr.${SOURCE_CHANNEL}.${VERSION}.linux-core-x64.tar.gz" && \
     tar xzf /tmp/radarr.tar.gz --directory=/opt/radarr --strip-components=1 && \
     chown --recursive 1000:1000 /config /downloads /movies /opt/radarr && \
     rm /tmp/radarr.tar.gz
