@@ -28,4 +28,5 @@ VOLUME /config /downloads /movies
 WORKDIR /opt/radarr
 
 EXPOSE 7878
-CMD ["/opt/radarr/Radarr", "-data=/config", "-nobrowser"]
+ENTRYPOINT ["/opt/radarr/Radarr"]
+CMD ["-data=/config", "-nobrowser"]
