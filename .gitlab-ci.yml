@@ -67,7 +67,7 @@ kaniko:
         }
       }
     }" > /kaniko/.docker/config.json
-  - /kaniko/executor --build-arg="SOURCE_CHANNEL=${SOURCE_CHANNEL}" --build-arg="VERSION=${VERSION}" --context="${CI_PROJECT_DIR}" --destination="${CI_REGISTRY_IMAGE}:${VERSION}-${CI_PIPELINE_IID}" --destination="${DOCKER_HUB_IMAGE}:${VERSION}-${CI_PIPELINE_IID}" --dockerfile="${CI_PROJECT_DIR}/Dockerfile"
+  - /kaniko/executor --build-arg="SOURCE_CHANNEL=${SOURCE_CHANNEL}" --build-arg="VERSION=${VERSION}" --context="${CI_PROJECT_DIR}" --destination="${CI_REGISTRY_IMAGE}:${VERSION}.${CI_PIPELINE_IID}${IMAGE_SUFFIX}" --destination="${DOCKER_HUB_IMAGE}:${VERSION}.${CI_PIPELINE_IID}${IMAGE_SUFFIX}" --dockerfile="${CI_PROJECT_DIR}/Dockerfile"
   - echo "Successfully published new image ${CI_REGISTRY_IMAGE}:${VERSION}.${CI_PIPELINE_IID}${IMAGE_SUFFIX}"
   - echo "Successfully published new image ${DOCKER_HUB_IMAGE}:${VERSION}.${CI_PIPELINE_IID}${IMAGE_SUFFIX}"
   stage: build
