@@ -5,7 +5,7 @@ Simple docker image for Radarr without any bloat, built on the official dotnet r
 ## Usage
 
 ```sh
-docker run --rm registry.gitlab.jmk.hu/media/radarr:<VERSION> \
+docker run --rm ghudiczius/radarr:<VERSION> \
   -p 7878:7878 \
   -v path/to/config:/config \
   -v path/to/downloads:/downloads \
@@ -15,7 +15,7 @@ docker run --rm registry.gitlab.jmk.hu/media/radarr:<VERSION> \
 or
 
 ```sh
-docker run --rm ghudiczius/radarr:<VERSION> \
+docker run --rm registry.gitlab.jmk.hu/media/radarr:<VERSION> \
   -p 7878:7878 \
   -v path/to/config:/config \
   -v path/to/downloads:/downloads \
